@@ -79,7 +79,7 @@ export const Header: React.FC = () => {
       <header className="relative z-10 px-4 py-6 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <a href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-200">
-          <img src="http://blog.lunarum.app/wp-content/uploads/2025/08/lunarum-logo-big.png" alt="Lunarum" className="h-8 sm:h-10" />
+          <img src="http://blog.lunarum.app/wp-content/uploads/2025/08/lunarum-logo-big.png" alt="Lunarum" className="max-h-12 sm:max-h-16" />
         </a>
         
         {/* Right side controls */}
