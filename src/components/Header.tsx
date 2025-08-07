@@ -150,16 +150,19 @@ export const Header: React.FC = () => {
         </div>
         
         <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6">
-          <a href="https://blog.lunarum.app/" className="font-semibold text-slate-200 hover:text-emerald-300 transition-colors duration-200">
-            {t('nav.articles')}
+          <a href="https://blog.lunarum.app/" className="relative group font-semibold text-slate-200 hover:text-emerald-300 transition-colors duration-200">
+            <span>{t('nav.articles')}</span>
+            <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-emerald-400 to-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></span>
           </a>
-          <a href="#about" className="font-semibold text-slate-200 hover:text-blue-300 transition-colors duration-200">
-            {t('nav.about')}
+          <a href="#about" className="relative group font-semibold text-slate-200 hover:text-blue-300 transition-colors duration-200">
+            <span>{t('nav.about')}</span>
+            <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></span>
           </a>
           <a href="#support" className="relative group font-medium">
-            <span className="bg-gradient-to-r from-yellow-400 via-pink-400 via-purple-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent animate-gradient-x bg-[length:200%_200%]">
+            <span className="bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-gradient-x bg-[length:200%_200%]">
               {t('nav.support')}
             </span>
+            <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></span>
           </a>
           <button 
             onClick={handleAuthAction}
@@ -183,16 +186,19 @@ export const Header: React.FC = () => {
 
         {/* Mobile Nav */}
         <nav className="lg:hidden flex items-center justify-center space-x-6 mt-4 text-sm pb-4 border-b border-slate-800/50 mx-4">
-            <a href="https://blog.lunarum.app/" className="font-semibold text-slate-200 hover:text-emerald-300 transition-colors duration-200">
-                {t('nav.articles')}
+            <a href="https://blog.lunarum.app/" className="relative group font-semibold text-slate-200 hover:text-emerald-300 transition-colors duration-200">
+                <span>{t('nav.articles')}</span>
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-emerald-400 to-cyan-400 scale-x-100 transition-transform origin-left duration-300 ease-out"></span>
             </a>
-            <a href="#about" className="font-semibold text-slate-200 hover:text-blue-300 transition-colors duration-200">
-                {t('nav.about')}
+            <a href="#about" className="relative group font-semibold text-slate-200 hover:text-blue-300 transition-colors duration-200">
+                <span>{t('nav.about')}</span>
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 scale-x-100 transition-transform origin-left duration-300 ease-out"></span>
             </a>
             <a href="#support" className="relative group font-medium">
-                <span className="bg-gradient-to-r from-yellow-400 via-pink-400 via-purple-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent animate-gradient-x bg-[length:200%_200%]">
-                {t('nav.support')}
+                <span className="bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-gradient-x bg-[length:200%_200%]">
+                  {t('nav.support')}
                 </span>
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 scale-x-100 transition-transform origin-left duration-300 ease-out"></span>
             </a>
         </nav>
         
