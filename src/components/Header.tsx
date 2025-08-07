@@ -79,12 +79,7 @@ export const Header: React.FC = () => {
       <header className="relative z-10 px-4 py-6 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <a href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-200">
-          <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full flex items-center justify-center">
-            <Sparkles className="w-6 h-6 text-white" />
-          </div>
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">
-            {t('footer.brandName')}
-          </h1>
+          <img src="https://blog.lunarum.app/wp-content/uploads/2025/08/lunarum-logo.png" alt="Lunarum" className="h-10" />
         </a>
         
         {/* Right side controls */}
