@@ -179,6 +179,22 @@ export const Header: React.FC = () => {
             <Menu className="w-6 h-6" />
           )}
         </button>
+        </div>
+
+        {/* Mobile Nav */}
+        <nav className="lg:hidden flex items-center justify-center space-x-6 mt-4 text-sm pb-4 border-b border-slate-800/50 mx-4">
+            <a href="#support" className="relative group font-medium">
+                <span className="bg-gradient-to-r from-yellow-400 via-pink-400 via-purple-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent animate-gradient-x bg-[length:200%_200%]">
+                {t('nav.support')}
+                </span>
+            </a>
+            <a href="#about" className="text-slate-300 hover:text-blue-300 transition-colors duration-200">
+                {t('nav.about')}
+            </a>
+            <a href="https://blog.lunarum.app/" className="text-slate-300 hover:text-emerald-300 transition-colors duration-200">
+                {t('nav.articles')}
+            </a>
+        </nav>
         
         {/* Mobile Menu */}
         {isMobileMenuOpen && ReactDOM.createPortal(
@@ -239,29 +255,6 @@ export const Header: React.FC = () => {
                 </div>
                 </div>
                 
-                <a 
-                  href="#support"
-                  className="block py-2 font-medium"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <span className="bg-gradient-to-r from-yellow-400 via-pink-400 via-purple-400 via-blue-400 to-emerald-400 bg-clip-text text-transparent animate-gradient-x bg-[length:200%_200%]">
-                    {t('nav.support')}
-                  </span>
-                </a>
-                <a 
-                  href="#about" 
-                  className="block text-slate-300 hover:text-blue-300 transition-colors duration-200 py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {t('nav.about')}
-                </a>
-                <a 
-                  href="https://blog.lunarum.app/" 
-                  className="block text-slate-300 hover:text-emerald-300 transition-colors duration-200 py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {t('nav.articles')}
-                </a>
                 <button 
                   onClick={() => {
                     handleAuthAction();
@@ -275,7 +268,6 @@ export const Header: React.FC = () => {
             </div>
           </div>
         , document.getElementById('modal-root')!)}
-      </div>
       </header>
       
       <AuthModal
