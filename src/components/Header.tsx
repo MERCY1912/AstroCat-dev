@@ -77,12 +77,14 @@ export const Header: React.FC = () => {
   return (
     <>
       <header className="relative z-10 px-4 py-6 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center">
           <div className="w-full sm:w-auto flex justify-center sm:justify-start">
             <a href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-200">
               <img src="http://blog.lunarum.app/wp-content/uploads/2025/08/lunarum-logo-big.png" alt="Lunarum" className="w-[180px] h-[168px]" />
             </a>
           </div>
+
+          <div className="sm:flex-grow"></div>
 
           <div className="flex items-center space-x-4 mt-4 sm:mt-0">
               {/* Right side controls */}
@@ -181,7 +183,7 @@ export const Header: React.FC = () => {
                 )}
               </button>
           </div>
-          </div>
+        </div>
 
           {/* Mobile Nav */}
           <nav className="w-full lg:hidden flex items-center justify-center space-x-6 mt-4 text-sm pb-4 border-b border-slate-800/50">
