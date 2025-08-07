@@ -77,51 +77,50 @@ export const Header: React.FC = () => {
   return (
     <>
       <header className="relative z-10 px-4 py-6 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center">
-          <div className="flex items-center space-x-8">
-            <div className="w-full sm:w-auto flex justify-center sm:justify-start">
-              <a href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-200">
-                <img src="http://blog.lunarum.app/wp-content/uploads/2025/08/lunarum-logo-big.png" alt="Lunarum" className="w-[180px] h-[168px]" />
-              </a>
-            </div>
-            {/* Right side controls */}
-            <div className="hidden sm:flex items-center space-x-8">
-              {/* Atmosphere Toggle */}
-              <div className="flex items-center space-x-2">
-                <Music className={`w-4 h-4 transition-colors duration-300 ${isAtmosphereMode ? 'text-orange-400' : 'text-slate-400'}`} />
-                <div className="relative">
-                  <button
-                    type="button"
-                    onMouseEnter={() => setShowAtmosphereTooltip(true)}
-                    onMouseLeave={() => setShowAtmosphereTooltip(false)}
-                    className="text-slate-400 hover:text-slate-300 transition-colors duration-200"
-                  >
-                    <HelpCircle className="w-3 h-3" />
-                  </button>
-                  {showAtmosphereTooltip && (
-                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-xs text-slate-200 whitespace-nowrap shadow-lg z-50">
-                      {t('interactive.atmosphereModeTooltip')}
-                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-800"></div>
-                    </div>
-                  )}
-                </div>
+        {/* Desktop Header */}
+        <div className="max-w-7xl mx-auto hidden sm:flex items-center justify-between">
+          {/* Group 1: Logo */}
+          <a href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-200">
+            <img src="http://blog.lunarum.app/wp-content/uploads/2025/08/lunarum-logo-big.png" alt="Lunarum" className="w-[180px] h-[168px]" />
+          </a>
+
+          {/* Group 2: Desktop Controls */}
+          <div className="hidden sm:flex items-center space-x-8">
+            {/* Atmosphere Toggle */}
+            <div className="flex items-center space-x-2">
+              <Music className={`w-4 h-4 transition-colors duration-300 ${isAtmosphereMode ? 'text-orange-400' : 'text-slate-400'}`} />
+              <div className="relative">
                 <button
                   type="button"
-                  onClick={() => setIsAtmosphereMode(!isAtmosphereMode)}
-                  className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400/50 ${
-                    isAtmosphereMode ? 'bg-gradient-to-r from-yellow-500 to-orange-500' : 'bg-slate-600'
-                  }`}
+                  onMouseEnter={() => setShowAtmosphereTooltip(true)}
+                  onMouseLeave={() => setShowAtmosphereTooltip(false)}
+                  className="text-slate-400 hover:text-slate-300 transition-colors duration-200"
                 >
-                  <span
-                    className={`inline-block h-3 w-3 transform rounded-full bg-white transition-transform duration-300 ${
-                      isAtmosphereMode ? 'translate-x-5' : 'translate-x-1'
-                    }`}
-                  />
+                  <HelpCircle className="w-3 h-3" />
                 </button>
+                {showAtmosphereTooltip && (
+                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-slate-800 border border-slate-600 rounded-lg text-xs text-slate-200 whitespace-nowrap shadow-lg z-50">
+                    {t('interactive.atmosphereModeTooltip')}
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-800"></div>
+                  </div>
+                )}
               </div>
-
-              {/* Language Toggle */}
-              <div className="flex items-center space-x-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full p-1">
+              <button
+                type="button"
+                onClick={() => setIsAtmosphereMode(!isAtmosphereMode)}
+                className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400/50 ${
+                  isAtmosphereMode ? 'bg-gradient-to-r from-yellow-500 to-orange-500' : 'bg-slate-600'
+                }`}
+              >
+                <span
+                  className={`inline-block h-3 w-3 transform rounded-full bg-white transition-transform duration-300 ${
+                    isAtmosphereMode ? 'translate-x-5' : 'translate-x-1'
+                  }`}
+                />
+              </button>
+            </div>
+            {/* Language Toggle */}
+            <div className="flex items-center space-x-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full p-1">
               <Globe className="w-4 h-4 text-slate-400 ml-2" />
               <button
                 onClick={() => setLanguage('ru')}
@@ -144,50 +143,53 @@ export const Header: React.FC = () => {
                 ENG
               </button>
             </div>
-            </div>
           </div>
 
-          <div className="flex-grow"></div>
-
-          <div className="flex items-center space-x-4 mt-4 sm:mt-0">
-              <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6">
-                <a href="https://blog.lunarum.app/" className="relative group font-semibold text-slate-200 hover:text-emerald-300 transition-colors duration-200">
-                  <span>{t('nav.articles')}</span>
-                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-emerald-400 to-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></span>
-                </a>
-                <a href="#about" className="relative group font-semibold text-slate-200 hover:text-blue-300 transition-colors duration-200">
-                  <span>{t('nav.about')}</span>
-                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></span>
-                </a>
-                <a href="#support" className="relative group font-medium">
-                  <span className="bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-gradient-x bg-[length:200%_200%]">
-                    {t('nav.support')}
-                  </span>
-                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></span>
-                </a>
-                <button
-                  onClick={handleAuthAction}
-                  className="px-4 lg:px-6 py-2 text-white rounded-full transition-all duration-200 transform hover:scale-105 shadow-lg text-sm lg:text-base flex items-center space-x-2 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 hover:from-purple-600 hover:via-pink-600 hover:to-blue-600 shadow-pink-500/25"
-                >
-                  <span>{user ? t('logout') : t('login')}</span>
-                </button>
-              </nav>
-
+          {/* Group 3: Desktop Nav */}
+          <div className="flex items-center">
+            <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6">
+              <a href="https://blog.lunarum.app/" className="relative group font-semibold text-slate-200 hover:text-emerald-300 transition-colors duration-200">
+                <span>{t('nav.articles')}</span>
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-emerald-400 to-cyan-400"></span>
+              </a>
+              <a href="#about" className="relative group font-semibold text-slate-200 hover:text-blue-300 transition-colors duration-200">
+                <span>{t('nav.about')}</span>
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-400"></span>
+              </a>
+              <a href="#support" className="relative group font-medium">
+                <span className="bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-gradient-x bg-[length:200%_200%]">
+                  {t('nav.support')}
+                </span>
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400"></span>
+              </a>
               <button
-                onClick={toggleMobileMenu}
-                className="absolute top-6 right-4 lg:hidden text-slate-300 hover:text-white transition-colors"
+                onClick={handleAuthAction}
+                className="px-4 lg:px-6 py-2 text-white rounded-full transition-all duration-200 transform hover:scale-105 shadow-lg text-sm lg:text-base flex items-center space-x-2 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 hover:from-purple-600 hover:via-pink-600 hover:to-blue-600 shadow-pink-500/25"
               >
-                {isMobileMenuOpen ? (
-                  <X className="w-6 h-6" />
-                ) : (
-                  <Menu className="w-6 h-6" />
-                )}
+                <span>{user ? t('logout') : t('login')}</span>
               </button>
+            </nav>
           </div>
         </div>
 
-          {/* Mobile Nav */}
-          <nav className="w-full lg:hidden flex items-center justify-center space-x-6 mt-4 text-sm pb-4 border-b border-slate-800/50">
+        {/* Mobile Header */}
+        <div className="sm:hidden flex flex-col items-center">
+          <div className="w-full flex justify-center relative">
+            <a href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-200">
+              <img src="http://blog.lunarum.app/wp-content/uploads/2025/08/lunarum-logo-big.png" alt="Lunarum" className="w-[180px] h-[168px]" />
+            </a>
+            <button
+              onClick={toggleMobileMenu}
+              className="absolute top-1/2 -translate-y-1/2 right-0 text-slate-300 hover:text-white transition-colors"
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
+          </div>
+          <nav className="w-full flex items-center justify-center space-x-6 mt-4 text-sm pb-4 border-b border-slate-800/50">
               <a href="https://blog.lunarum.app/" className="relative group font-semibold text-slate-200 hover:text-emerald-300 transition-colors duration-200">
                   <span>{t('nav.articles')}</span>
                   <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-emerald-400 to-cyan-400 scale-x-100 transition-transform origin-left duration-300 ease-out"></span>
@@ -203,6 +205,7 @@ export const Header: React.FC = () => {
                   <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-yellow-400 via-pink-400 to-purple-400 scale-x-100 transition-transform origin-left duration-300 ease-out"></span>
               </a>
           </nav>
+        </div>
         
         {/* Mobile Menu */}
         {isMobileMenuOpen && ReactDOM.createPortal(
